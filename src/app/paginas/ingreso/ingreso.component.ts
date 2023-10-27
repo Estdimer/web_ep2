@@ -1,30 +1,45 @@
 import { Component } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-ingreso',
   templateUrl: './ingreso.component.html',
   styleUrls: ['./ingreso.component.css'],
 })
-
 export class IngresoComponent {
   loginForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
-    this.loginForm = fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-    })
-    console.log('funciono1')
+    this.loginForm = fb.group(
+      {
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6)]],
+      },
+      { validators: Confirmar("email","password") }
+    );
+    console.log('funciono1');
   }
-  
-  // se puede ocupar Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")])
+  Confirma(){
+    console.log("funciona3")
+  }
+}
 
-  SaveData(){
-    console.log(this.loginForm.value);
-    console.log('funciono2')
-  }
+function Confirmar(mail: string, contra: string) {
+  return (formGroup: FormGroup) => {
+    const userJson = localStorage.getItem('local');
+    if (userJson) {
+      const user = JSON.parse(userJson);
+
+      const enteredmail = mail;
+      const enteredPassword = contra; 
+
+      if (
+        user.email === enteredmail &&
+        user.password === enteredPassword
+      ) {
+        console.log('Los datos coinciden.');
+      } else {
+        console.log('Los datos no coinciden.');
+      }
+    }
+  };
 }
