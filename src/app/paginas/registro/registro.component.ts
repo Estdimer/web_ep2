@@ -29,6 +29,11 @@ export class RegistroComponent {
   SaveData(){
     console.log(this.registerForm.value);
     console.log('funciono2')
+    let userData = {
+      email: this.registerForm.value.email,
+      password: this.registerForm.value.password
+    };
+    localStorage.setItem('local', JSON.stringify(userData));
   }
 };
 
