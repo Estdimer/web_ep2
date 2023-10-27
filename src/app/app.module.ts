@@ -9,6 +9,7 @@ import { InicioComponent } from './paginas/inicio/inicio.component';
 import { NoticiasComponent } from './paginas/noticias/noticias.component';
 import { RegistroComponent } from './paginas/registro/registro.component';
 import { IngresoComponent } from './paginas/ingreso/ingreso.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -35,7 +36,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AppComponent, FooterComponent, MenuComponent, RegistroComponent, IngresoComponent],
-  imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(routes)],
+  imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(routes),ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
