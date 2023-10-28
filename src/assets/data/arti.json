@@ -1,17 +1,21 @@
 [
     {
+        "imagen":"./limpiar-playas.jpg",
+        "titulo":"gato perro ",
+        "descripcion":"salva niño"
+    },
+    {
+        "imagen":"src/assets/imagenes/limpiar-playas.jpg",
         "titulo":"hombre limpia playa",
         "descripcion":"hombrel limpia playa solo en 3 hrs"
     },
     {
-        "titulo":"hombre limpia playa",
-        "descripcion":"hombrel limpia playa solo en 3 hrs"
-    },
-    {
+        "imagen":"src/assets/imagenes/limpiar-playas.jpg",
         "titulo":"hombre limpia",
         "descripcion":"hombrel limpia playa solo en 3 hrs"
     },
     {
+        "imagen":"src/assets/imagenes/limpiar-playas.jpg",
         "titulo":"hombre playa",
         "descripcion":"hombrel limpia playa solo en 3 hrs"
     }

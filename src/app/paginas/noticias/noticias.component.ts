@@ -2,8 +2,9 @@ import { Component,OnInit } from '@angular/core';
 import articulos from '../../../assets/data/arti.json'
 
 interface News{
+  imagen:string;
   titulo:string;
-  descripcion:string
+  descripcion:string;
 }
 
 @Component({
@@ -13,7 +14,7 @@ interface News{
 })
 export class NoticiasComponent implements OnInit{
   
-  newsList: News[] = articulos;
+  newsList :News[] =articulos;
   constructor(){}
   ngOnInit(): void {
       throw new Error('Method not implemented.');
