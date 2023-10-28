@@ -12,11 +12,20 @@ import { IngresoComponent } from './paginas/ingreso/ingreso.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PerfilComponent } from './paginas/perfil/perfil.component';
 import { TutorialesComponent } from './paginas/tutoriales/tutoriales.component';
+import { BuscadorComponent } from './paginas/buscador/buscador.component';
 
 const routes: Routes = [
   {
     path: '',
     component: InicioComponent,
+  },
+  {
+    path: 'buscador',
+    component: BuscadorComponent,
+  },
+  {
+    path: 'tutoriales',
+    component: TutorialesComponent,
   },
   {
     path: 'perfil',
@@ -41,7 +50,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent, MenuComponent, RegistroComponent, IngresoComponent, PerfilComponent, TutorialesComponent],
+  declarations: [AppComponent, FooterComponent, MenuComponent, RegistroComponent, IngresoComponent, PerfilComponent, TutorialesComponent, BuscadorComponent],
   imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(routes),ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
