@@ -29,8 +29,8 @@ function Confirmar(mail: string, contra: string) {
     if (userJson) {
       const user = JSON.parse(userJson);
 
-      const enteredmail = mail;
-      const enteredPassword = contra; 
+      const enteredmail = formGroup.value.email;
+      const enteredPassword =formGroup.value.password;
 
       if (
         user.email === enteredmail &&

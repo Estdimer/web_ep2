@@ -19,9 +19,10 @@ export class RegistroComponent {
     this.registerForm = fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmpassword: ['', [Validators.required, Validators.minLength(6)]],  
+      confirmpassword: ['', [Validators.required, Validators.minLength(6)]],
+      checkbox: [false,Validators.requiredTrue]  
     },
-    {validator: ConfirmedValidator('password', 'confirmPassword') }
+    {Validator: ConfirmedValidator('password', 'confirmPassword') }
     )
     console.log('funciono1')
   }
@@ -43,7 +44,7 @@ function ConfirmedValidator(controlName: string, matchingControlName: string){
       const control = formGroup.controls[controlName];
       const matchingControl = formGroup.controls[matchingControlName];
       if (!matchingControl) {
-        return; // No hay coincidencia, no se puede validar
+        return ; // No hay coincidencia, no se puede validar
       }
   
       if (control.value !== matchingControl.value) {
