@@ -10,11 +10,16 @@ import { NoticiasComponent } from './paginas/noticias/noticias.component';
 import { RegistroComponent } from './paginas/registro/registro.component';
 import { IngresoComponent } from './paginas/ingreso/ingreso.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PerfilComponent } from './paginas/perfil/perfil.component';
 
 const routes: Routes = [
   {
     path: '',
     component: InicioComponent,
+  },
+  {
+    path: 'perfil',
+    component: PerfilComponent,
   },
   {
     path: 'inicio',
@@ -35,7 +40,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent, MenuComponent, RegistroComponent, IngresoComponent],
+  declarations: [AppComponent, FooterComponent, MenuComponent, RegistroComponent, IngresoComponent, PerfilComponent],
   imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(routes),ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
