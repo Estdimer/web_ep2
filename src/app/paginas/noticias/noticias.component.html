@@ -1,7 +1,8 @@
 <div>
   <ul>
-    <li *ngFor="let pelicula of newsList">
-      {{ pelicula }}
+    <li *ngFor="let news of newsList">
+      <p>{{news.titulo}}</p>
+      <p>{{news.descripcion}}</p>
     </li>
   </ul>
 </div>
