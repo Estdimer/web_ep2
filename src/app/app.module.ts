@@ -11,6 +11,7 @@ import { RegistroComponent } from './paginas/registro/registro.component';
 import { IngresoComponent } from './paginas/ingreso/ingreso.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PerfilComponent } from './paginas/perfil/perfil.component';
+import { TutorialesComponent } from './paginas/tutoriales/tutoriales.component';
 
 const routes: Routes = [
   {
@@ -40,7 +41,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent, MenuComponent, RegistroComponent, IngresoComponent, PerfilComponent],
+  declarations: [AppComponent, FooterComponent, MenuComponent, RegistroComponent, IngresoComponent, PerfilComponent, TutorialesComponent],
   imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(routes),ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
