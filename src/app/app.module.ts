@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PerfilComponent } from './paginas/perfil/perfil.component';
 import { TutorialesComponent } from './paginas/tutoriales/tutoriales.component';
 import { BuscadorComponent } from './paginas/buscador/buscador.component';
+import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
   {
@@ -50,8 +51,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent, MenuComponent, RegistroComponent, IngresoComponent, PerfilComponent, TutorialesComponent, BuscadorComponent],
-  imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(routes),ReactiveFormsModule],
+  declarations: [AppComponent, FooterComponent, MenuComponent, RegistroComponent, IngresoComponent, PerfilComponent, TutorialesComponent, BuscadorComponent,NoticiasComponent],
+  imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(routes),ReactiveFormsModule,CommonModule],
   providers: [],
   bootstrap: [AppComponent],
 })
