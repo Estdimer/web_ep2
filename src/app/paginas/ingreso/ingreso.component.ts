@@ -28,8 +28,9 @@ export class IngresoComponent implements OnInit {
   Confirma() {
       const correo = this.loginForm.value.email;
       const contrasena = this.loginForm.value.password;
-     
+      console.log('El usuario existe.');
       const usuario = this.usuarios.find((u) => u.email === correo && u.password === contrasena);
+      console.log('El usuario existe.');
       if (!usuario) {
         console.log('El usuario existe.');
       } else {
