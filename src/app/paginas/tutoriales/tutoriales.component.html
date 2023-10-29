@@ -1,1 +1,32 @@
-<p>tutoriales works!</p>
+<div>
+    <ul>
+      <li *ngFor="let news of newsList">
+           
+        <h1>{{news.titulo}}</h1>
+        
+        <youtube-player 
+    videoId={{news.url}}
+  suggestedQuality="highres" 
+  [height]="240" 
+  [width]="426" 
+  [startSeconds]="4"
+	[endSeconds]="300">
+</youtube-player>
+
+
+
+
+
+        <p>{{news.descripcion}}</p>
+      </li>
+    </ul>
+  </div>  
+
+
+
+
+<youtube-player videoId="GYAB4Td62zI"></youtube-player>
+
+
+
+

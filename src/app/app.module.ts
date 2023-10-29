@@ -16,6 +16,7 @@ import { BuscadorComponent } from './paginas/buscador/buscador.component';
 import { CommonModule } from '@angular/common';
 import {HttpClient}from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 const routes: Routes = [
   {
@@ -54,7 +55,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AppComponent, FooterComponent, MenuComponent, RegistroComponent, IngresoComponent, PerfilComponent, TutorialesComponent, BuscadorComponent,NoticiasComponent],
-  imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(routes),ReactiveFormsModule,CommonModule,HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(routes),ReactiveFormsModule,CommonModule,HttpClientModule,YouTubePlayerModule],
   providers: [],
   bootstrap: [AppComponent],
 })
