@@ -9,20 +9,6 @@
       "id": 2,
       "email": "otro@correo.com",
       "password": "otra_contraseña"
-    },
-    {
-      "email": "ese@gmail.com",
-      "password": "123123",
-      "confirmpassword": "123123",
-      "checkbox": true,
-      "id": 3
-    },
-    {
-      "email": "ese@gmail.com",
-      "password": "123123",
-      "confirmpassword": "123123",
-      "checkbox": true,
-      "id": 4
     }
   ]
 }
