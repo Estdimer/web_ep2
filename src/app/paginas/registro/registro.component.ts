@@ -4,6 +4,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import {UsersService} from '../../users.service';
+import{HttpClientModule} from '@angular/common/http'
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -15,7 +17,7 @@ import {
 export class RegistroComponent {
   registerForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private user:UsersService) {
     this.registerForm = fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -35,6 +37,9 @@ export class RegistroComponent {
       password: this.registerForm.value.password
     };
     localStorage.setItem('local', JSON.stringify(userData));
+    this.user.saveUserData(this.registerForm.value).subscribe((result)=>{
+      console.log(result);
+    })
   }
 };
 

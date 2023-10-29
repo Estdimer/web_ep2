@@ -14,6 +14,8 @@ import { PerfilComponent } from './paginas/perfil/perfil.component';
 import { TutorialesComponent } from './paginas/tutoriales/tutoriales.component';
 import { BuscadorComponent } from './paginas/buscador/buscador.component';
 import { CommonModule } from '@angular/common';
+import {HttpClient}from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -52,7 +54,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AppComponent, FooterComponent, MenuComponent, RegistroComponent, IngresoComponent, PerfilComponent, TutorialesComponent, BuscadorComponent,NoticiasComponent],
-  imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(routes),ReactiveFormsModule,CommonModule],
+  imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(routes),ReactiveFormsModule,CommonModule,HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
