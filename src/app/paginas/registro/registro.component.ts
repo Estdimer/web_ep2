@@ -34,7 +34,8 @@ export class RegistroComponent {
     console.log('funciono2')
     let userData = {
       email: this.registerForm.value.email,
-      password: this.registerForm.value.password
+      password: this.registerForm.value.password,
+      name:"nombre"
     };
     localStorage.setItem('local', JSON.stringify(userData));
     this.user.saveUserData(userData).subscribe((result)=>{

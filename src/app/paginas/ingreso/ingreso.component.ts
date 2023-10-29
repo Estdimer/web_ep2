@@ -1,45 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {UsersService} from '../../users.service';
 @Component({
   selector: 'app-ingreso',
   templateUrl: './ingreso.component.html',
   styleUrls: ['./ingreso.component.css'],
 })
-export class IngresoComponent {
+export class IngresoComponent implements OnInit {
   loginForm: FormGroup;
+  usuarios: any[] = [];
 
-  constructor(private fb: FormBuilder) {
-    this.loginForm = fb.group(
-      {
-        email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required, Validators.minLength(6)]],
-      },
-      { validators: Confirmar("email","password") }
-    );
+  constructor(private fb: FormBuilder, private user: UsersService) {
+    this.loginForm = fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    })
     console.log('funciono1');
   }
-  Confirma(){
-    console.log("funciona3")
+
+  ngOnInit() {
+    this.user.getUser().subscribe((data: any) => {
+      this.usuarios = data.usuarios;
+      console.log('Datos de usuarios obtenidos:', this.usuarios);
+    });
+  }
+
+  Confirma() {
+      const correo = this.loginForm.value.email;
+      const contrasena = this.loginForm.value.password;
+     
+      const usuario = this.usuarios.find((u) => u.email === correo && u.password === contrasena);
+      if (!usuario) {
+        console.log('El usuario existe.');
+      } else {
+        console.log('El usuario no existe.');
+      }
+    
   }
 }
 
-function Confirmar(mail: string, contra: string) {
-  return (formGroup: FormGroup) => {
-    const userJson = localStorage.getItem('local');
-    if (userJson) {
-      const user = JSON.parse(userJson);
 
-      const enteredmail = formGroup.value.email;
-      const enteredPassword =formGroup.value.password;
 
-      if (
-        user.email === enteredmail &&
-        user.password === enteredPassword
-      ) {
-        console.log('Los datos coinciden.');
-      } else {
-        console.log('Los datos no coinciden.');
-      }
-    }
-  };
-}

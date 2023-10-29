@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 import {HttpClient}from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { YouTubePlayerModule } from '@angular/youtube-player';
+import { UsersService } from './users.service';
 
 const routes: Routes = [
   {
@@ -56,7 +57,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [AppComponent, FooterComponent, MenuComponent, RegistroComponent, IngresoComponent, PerfilComponent, TutorialesComponent, BuscadorComponent,NoticiasComponent],
   imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(routes),ReactiveFormsModule,CommonModule,HttpClientModule,YouTubePlayerModule],
-  providers: [],
+  providers: [UsersService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
