@@ -18,9 +18,9 @@ export class BuscadorComponent implements OnInit {
   ngOnInit() {
     console.log('funciono2');
   }
-
   SaveData() {
      //console.log(this.buscarForm.get('buscar').value);
+     console.log(this.buscarForm.value);
     console.log('funciono3');
 }
 }
