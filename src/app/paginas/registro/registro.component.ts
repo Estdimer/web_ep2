@@ -26,12 +26,9 @@ export class RegistroComponent {
     },
     {Validator: ConfirmedValidator('password', 'confirmPassword') }
     )
-    console.log('funciono1')
   }
   // se puede ocupar Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")])
   SaveData(){
-    console.log(this.registerForm.value);
-    console.log('funciono2')
     let userData = {
       email: this.registerForm.value.email,
       password: this.registerForm.value.password,

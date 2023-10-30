@@ -19,14 +19,11 @@ export class IngresoComponent implements OnInit {
   }
   
   ngOnInit() {
-    console.log('funciono1');
   }
 
   Confirma() {   
-    console.log('aaaaaaaa');
     this.user.getUser().subscribe((data: any) => {
       for (let i = 0; data.length; i++) {
-          console.log(i);
           if(data[i].email==this.loginForm.value.email)
           {
             if(data[i].password==this.loginForm.value.password)
