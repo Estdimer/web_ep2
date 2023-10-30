@@ -25,7 +25,7 @@ export class IngresoComponent implements OnInit {
   Confirma() {   
     console.log('aaaaaaaa');
     this.user.getUser().subscribe((data: any) => {
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; data.length; i++) {
           console.log(i);
           if(data[i].email==this.loginForm.value.email)
           {
