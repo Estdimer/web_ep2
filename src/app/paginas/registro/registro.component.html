@@ -12,13 +12,6 @@
             Registrate
           </h1>
 
-          <! Formulario>
-          
-          <div class="text-red-600">
-            {{registerForm.valid}}
-           <! (comentario)true para validar se ve tambien en la consola >
-          <! (comentario)  tipo email y contraseña mas de 8 letras>
-          </div>
           
           
 
@@ -31,8 +24,8 @@
                 placeholder="name@company.com" required="" />
             
               <! los comprobarores del validador>
-                <div *ngIf="registerForm.controls['email'].hasError('required')" class="text-red-600"> email obligaririo</div>
-              <div *ngIf="registerForm.controls['email'].hasError('email')" class="text-red-600" >email valido  necesario</div>
+                <div *ngIf="registerForm.controls['email'].hasError('required')" class="text-red-600"> Email obligaririo</div>
+              <div *ngIf="registerForm.controls['email'].hasError('email')" class="text-red-600" >Email valido  necesario</div>
 
               </div>
 
@@ -45,8 +38,8 @@
                 required="" />
 
                 <! los comprobarores del validador>
-                <div *ngIf="registerForm.controls['password'].hasError('required')" class="text-red-600"> contraseña obligariria</div>
-                <div *ngIf="registerForm.controls['password'].hasError('minlength')" class="text-red-600" >contraseña muy corta </div>
+                <div *ngIf="registerForm.controls['password'].hasError('required')" class="text-red-600"> Contraseña obligariria</div>
+                <div *ngIf="registerForm.controls['password'].hasError('minlength')" class="text-red-600" >Contraseña muy corta </div>
             
 
             </div>
