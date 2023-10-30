@@ -13,6 +13,7 @@ export class PerfilComponent implements OnInit {
   constructor(private perf: ProfileService) {}
 
   ngOnInit() {
-    console.log(this.perf); // Obtener datos del perfil desde el servicio
+    this.userProfileData = this.perf.getperfil();
+    console.log(this.userProfileData.name);
   }
 }
