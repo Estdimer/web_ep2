@@ -8,35 +8,31 @@ import {UsersService} from '../../users.service';
 })
 export class IngresoComponent implements OnInit {
   loginForm: FormGroup;
-  usuarios: any[] = [];
 
   constructor(private fb: FormBuilder, private user: UsersService) {
     this.loginForm = fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     })
+
+  }
+  
+  ngOnInit() {
     console.log('funciono1');
   }
 
-  ngOnInit() {
+  Confirma() {   
+    console.log('aaaaaaaa');
     this.user.getUser().subscribe((data: any) => {
-      this.usuarios = data.usuarios;
-      console.log('Datos de usuarios obtenidos:', this.usuarios);
+      for (let i = 0; i < 4; i++) {
+          console.log(i);
+          if(data[i].email==this.loginForm.value.email)
+          {
+            if(data[i].password==this.loginForm.value.password)
+            console.log('Datos coinciden');
+          }
+      }  
     });
-  }
-
-  Confirma() {
-      const correo = this.loginForm.value.email;
-      const contrasena = this.loginForm.value.password;
-      console.log('El usuario existe.');
-      const usuario = this.usuarios.find((u) => u.email === correo && u.password === contrasena);
-      console.log('El usuario existe.');
-      if (!usuario) {
-        console.log('El usuario existe.');
-      } else {
-        console.log('El usuario no existe.');
-      }
-    
   }
 }
 

@@ -9,6 +9,18 @@
       "id": 2,
       "email": "otro@correo.com",
       "password": "otra_contraseña"
+    },
+    {
+      "email": "ese@gmail.com",
+      "password": "123123",
+      "name": "nombre",
+      "id": 3
+    },
+    {
+      "email": "esa@gmail.com",
+      "password": "123123",
+      "name": "nombre",
+      "id": 4
     }
   ]
 }
