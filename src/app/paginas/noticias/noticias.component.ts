@@ -17,7 +17,7 @@ export class NoticiasComponent implements OnInit{
   newsList :News[] =articulos;
   constructor(){}
   ngOnInit(): void {
-      throw new Error('Method not implemented.');
+      
     }
 }
 
