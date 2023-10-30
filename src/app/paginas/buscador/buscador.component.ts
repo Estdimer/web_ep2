@@ -13,14 +13,11 @@ export class BuscadorComponent implements OnInit {
     this.buscarForm = fb.group({
       buscar: ['']
     });
-    console.log('funciono1');
   }
   ngOnInit() {
-    console.log('funciono2');
   }
   SaveData() {
      //console.log(this.buscarForm.get('buscar').value);
      console.log(this.buscarForm.value);
-    console.log('funciono3');
 }
 }
