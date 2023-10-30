@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {UsersService} from '../../users.service';
+import { ProfileService } from 'src/app/perfil.service';
 @Component({
   selector: 'app-ingreso',
   templateUrl: './ingreso.component.html',
@@ -9,7 +10,7 @@ import {UsersService} from '../../users.service';
 export class IngresoComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private user: UsersService) {
+  constructor(private fb: FormBuilder, private user: UsersService, private prof:ProfileService) {
     this.loginForm = fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -30,8 +31,10 @@ export class IngresoComponent implements OnInit {
           {
             if(data[i].password==this.loginForm.value.password)
             console.log('Datos coinciden');
+            this.prof.setPerfil(data[i]);
+
           }
-      }  
+      } 
     });
   }
 }

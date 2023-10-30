@@ -18,6 +18,7 @@ import {HttpClient}from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { UsersService } from './users.service';
+import { ProfileService } from './perfil.service';
 
 const routes: Routes = [
   {
