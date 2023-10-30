@@ -15,13 +15,12 @@ export class BuscadorComponent implements OnInit {
     });
     console.log('funciono1');
   }
-
   ngOnInit() {
-    console.log('funciono1');
+    console.log('funciono2');
   }
 
   SaveData() {
      //console.log(this.buscarForm.get('buscar').value);
-    console.log('funciono2');
+    console.log('funciono3');
 }
 }
