@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from 'src/app/perfil.service';
+import { UsersService } from 'src/app/users.service';
 
 
 @Component({
@@ -8,11 +9,18 @@ import { ProfileService } from 'src/app/perfil.service';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
-  userProfileData: any; // Propiedad para almacenar los datos del perfil
+  userProfileData: any;
 
-  constructor(private perf: ProfileService) {}
+  constructor(private perf: ProfileService,private user : UsersService) {}
 
   ngOnInit() {
     this.userProfileData = this.perf.getperfil();
+  }
+  borrar(){
+
+    this.user.deleteUser(this.userProfileData.id).subscribe(()=>{
+      console.log('se elimino el perfil');
+    })
+    
   }
 }

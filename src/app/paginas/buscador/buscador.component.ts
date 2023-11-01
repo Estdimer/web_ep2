@@ -32,7 +32,6 @@ export class BuscadorComponent implements OnInit {
      {
         if(this.newsList[i].titulo.includes(this.buscarForm.value.buscar))
         {
-          console.log('entro');
           this.coinciden[contador]=this.newsList[i];
           contador++;
         }

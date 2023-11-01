@@ -15,4 +15,7 @@ export class UsersService {
     console.log(data);
     return this.http.post(this.url, data);
   }
+  deleteUser(id: number) {
+    return this.http.delete(`${this.url}/${id}`);
+  }
 }
