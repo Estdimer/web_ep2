@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import articulos from '../../../assets/data/arti.json';
+
+interface News{
+  imagen:string;
+  titulo:string;
+  descripcion:string;
+}
 
 @Component({
   selector: 'app-buscador',
@@ -8,6 +15,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class BuscadorComponent implements OnInit { 
   buscarForm: FormGroup;
+  newsList :News[] =articulos;
+  coinciden :News[] =[];
+
 
   constructor(private fb: FormBuilder) {
     this.buscarForm = fb.group({
@@ -17,7 +27,16 @@ export class BuscadorComponent implements OnInit {
   ngOnInit() {
   }
   SaveData() {
-     //console.log(this.buscarForm.get('buscar').value);
-     console.log(this.buscarForm.value);
+     let contador =0;
+     for(let i =0;i<this.newsList.length;i++)
+     {
+        if(this.newsList[i].titulo.includes(this.buscarForm.value.buscar))
+        {
+          console.log('entro');
+          this.coinciden[contador]=this.newsList[i];
+          contador++;
+        }
+     }
+     //console.log(this.coinciden[0].descripcion);
 }
 }
