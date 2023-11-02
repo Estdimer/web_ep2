@@ -1,12 +1,13 @@
-<form [formGroup]="buscarForm" (ngSubmit)="SaveData()"
-    class="min-h-screen flex flex-col items-center justify-center bg-gray-900">
+<div class="min-h-screen flex flex-col items-center justify-center bg-gray-900">
+<form [formGroup]="buscarForm" (ngSubmit)="SaveData()" class="mt-4"
+    >
     <label
         class="mx-auto relative bg-white min-w-sm max-w-2xl flex flex-col md:flex-row items-center justify-center border py-2 px-2 rounded-2xl gap-2 shadow-2xl focus-within:border-gray-300"
         for="search-bar">
         <input id="search-bar" placeholder="Escriba la noticia" type="text" formControlName="buscar"
             class="px-6 py-2 w-full rounded-md flex-1 outline-none bg-white" />
         <button type="submit"
-            class="w-full md:w-auto px-6 py-3 bg-black border-black text-white fill-white active:scale-95 duration-100 border will-change-transform overflow-hidden relative rounded-xl transition-all"
+            class="w-full md:w-auto px-6 py-3 bg-green-600  hover:bg-green-700 text-white fill-white active:scale-95 duration-100 border will-change-transform overflow-hidden relative rounded-xl transition-all"
             [disabled]="!buscarForm.valid">
             <div class="relative">
                 <div
@@ -27,7 +28,7 @@
         </button>
     </label>
 </form>
-<div class=" min-h-screen   flex flex-col items-center justify-center  bg-gray-900">
+<div class="  flex flex-col items-center justify-center  bg-gray-900">
     <a *ngFor="let news of coinciden" class=" bg-gray-800 p-8 max-w-lg border my-4  border-gray-700 rounded-2xl hover:shadow-xl hover:shadow-gray-600 flex flex-col items-center"
        >
         <img [src]="news.imagen" class="shadow rounded-lg overflow-hidden border" >
@@ -43,3 +44,4 @@
     </a>
 </div>
   
+</div>
