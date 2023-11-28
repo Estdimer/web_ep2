@@ -38,23 +38,34 @@
                 required="" />
 
                 <! los comprobarores del validador>
-                <div *ngIf="registerForm.controls['password'].hasError('required')" class="text-red-600"> Contraseña obligariria</div>
-                <div *ngIf="registerForm.controls['password'].hasError('minlength')" class="text-red-600" >Contraseña muy corta </div>
-            
-
+                <div *ngIf="registerForm.controls['password'].hasError('required')  " class="text-red-600"> Contraseña obligariria</div>
+                <div *ngIf="registerForm.controls['password'].hasError('minlength')  " class="text-red-600" >Minimo 6 caracteres </div>
+                <div *ngIf="registerForm.get('password')?.hasError('uppercase')  "class="text-red-600">
+                  Necesita por lo menos 1 mayuscula
+                </div>
+                <div *ngIf="registerForm.get('password')?.hasError('lowercase')  "class="text-red-600">
+                  Necesita por lo menos 1 minuscula
+                </div>
+                <div *ngIf="registerForm.get('password')?.hasError('number')  "class="text-red-600">
+                  Necesita por lo menos 1 numero
+                </div>
+                <div *ngIf="registerForm.get('password')?.hasError('specialCharacter')  "class="text-red-600">
+                  Necesita por lo menos caracter especial
+                </div>
             </div>
             <div>
               <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirme su 
                 contraseña</label>
-              <input type="password"  formControlName="confirmpassword"   placeholder="••••••••"
+              <input type="password"  formControlName="confirmPassword"   placeholder="••••••••"
                 class="bg-gray-50 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-600 border   border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required="" />
 
                 <! los comprobarores del validador>
-                <div *ngIf="registerForm.controls['password'].hasError('required')" class="text-red-600"> Contraseña obligariria</div>
-                <div *ngIf="registerForm.controls['password'].hasError('minlength')" class="text-red-600" >Contraseña muy corta </div>
-            
-
+                <div *ngIf="registerForm.controls['confirmPassword'].hasError('required')" class="text-red-600"> Contraseña obligariria</div>
+                
+                <div *ngIf="registerForm.errors?.['valuematcherror']" class="text-red-600" >contraseñas diferentes </div>
+              
+                
             </div>
             <div class="flex items-start">
               <div class="flex items-center h-5">

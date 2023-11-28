@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { checkvaluesmatch,uppercaseValidator,lowercaseValidator,numberValidator,specialCharacterValidator } from './matchpassword.validator';
 import {
   FormBuilder,
   FormGroup,
@@ -20,11 +21,21 @@ export class RegistroComponent {
   constructor(private fb: FormBuilder, private user:UsersService) {
     this.registerForm = fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmpassword: ['', [Validators.required, Validators.minLength(6)]],
-      checkbox: [false,Validators.requiredTrue]  
+      password: ['', [Validators.required, Validators.minLength(6),Validators.compose([
+        Validators.required,
+        uppercaseValidator,
+        lowercaseValidator,
+        numberValidator,
+        specialCharacterValidator
+      ])]],
+      confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
+      checkbox: [false,Validators.requiredTrue] ,
+      
     },
-    {Validator: ConfirmedValidator('password', 'confirmPassword') }
+    {
+      validator: checkvaluesmatch('password', 'confirmPassword')
+        
+    }
     )
   }
   // se puede ocupar Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")])
@@ -32,6 +43,7 @@ export class RegistroComponent {
     let userData = {
       email: this.registerForm.value.email,
       password: this.registerForm.value.password,
+      confirmPassword: this.registerForm.value.confirmPassword,
       name:"nombre"
     };
     localStorage.setItem('local', JSON.stringify(userData));
