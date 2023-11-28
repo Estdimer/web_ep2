@@ -44,9 +44,9 @@ export class RegistroComponent {
       email: this.registerForm.value.email,
       password: this.registerForm.value.password,
       confirmPassword: this.registerForm.value.confirmPassword,
-      name:"nombre"
+      name:"nombre",
+      rol:"0"
     };
-    localStorage.setItem('local', JSON.stringify(userData));
     this.user.saveUserData(userData).subscribe((result)=>{
       console.log(result);
     })
