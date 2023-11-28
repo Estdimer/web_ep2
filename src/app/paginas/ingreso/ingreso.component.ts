@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {UsersService} from '../../users.service';
 import { ProfileService } from 'src/app/perfil.service';
 import { Router } from '@angular/router';
+import { info } from 'console';
 
 @Component({
   selector: 'app-ingreso',
@@ -24,16 +25,31 @@ export class IngresoComponent implements OnInit {
   }
 
   Confirma() {   
-    this.user.getUser().subscribe((data: any) => {
-      for (let i = 0; data.length; i++) {
-          if(data[i].email==this.loginForm.value.email)
-          {
-            if(data[i].password==this.loginForm.value.password)
-            console.log('Datos coinciden');
-            this.prof.setPerfil(data[i]);
-            this.router.navigate(['/perfil']);
-          }
-      } 
+    let infoperfil={
+        id:"",
+        nombre:"",
+        mail:"",
+        descripcion:"",
+        rol:"",
+    };
+    this.user.getUser(this.loginForm.value.email).subscribe((data: any) => 
+      {
+      if(data[0].password==this.loginForm.value.password)
+      {
+        console.log('Datos coinciden');
+        infoperfil.id=data[0].id;
+        infoperfil.nombre=data[0].nombre;
+        infoperfil.mail=data[0].mail;
+        infoperfil.descripcion=data[0].descripcion;
+        infoperfil.rol=data[0].rol;
+        this.prof.setPerfil(infoperfil);
+        localStorage.setItem('local', JSON.stringify(infoperfil));
+        this.router.navigate(['/perfil']);
+      }
+      else
+      {
+        console.log("Datos no Coinciden");
+      }
     });
   }
 }

@@ -28,6 +28,7 @@ export class BuscadorComponent implements OnInit {
   }
   SaveData() {
      let contador =0;
+     this.newsList=[];
      for(let i =0;i<this.newsList.length;i++)
      {
         if(this.newsList[i].titulo.includes(this.buscarForm.value.buscar))
@@ -36,6 +37,5 @@ export class BuscadorComponent implements OnInit {
           contador++;
         }
      }
-     //console.log(this.coinciden[0].descripcion);
 }
 }

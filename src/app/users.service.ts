@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
+import { subscribe } from 'diagnostics_channel';
 
 @Injectable({
   providedIn: 'root'
@@ -7,12 +8,11 @@ import {HttpClient} from '@angular/common/http'
 export class UsersService {
 
   constructor(private http:HttpClient) { }
-  url = 'http://localhost:3000/Users';
-  getUser(){
-    return this.http.get(this.url);
+  url = 'http://localhost:4000/api/usuarios';
+  getUser(email:any){
+    return this.http.get(this.url,email);
   }
   saveUserData(data: any){
-    console.log(data);
     return this.http.post(this.url, data);
   }
   deleteUser(id: number) {
