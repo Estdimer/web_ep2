@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from 'src/app/perfil.service';
 import { UsersService } from 'src/app/users.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,11 +11,23 @@ import { UsersService } from 'src/app/users.service';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
+  
   userProfileData: any;
+  adminForm: FormGroup;
 
-  constructor(private perf: ProfileService,private user : UsersService) {}
+  constructor(
+    private fb: FormBuilder,
+    private user: UsersService,
+    private perf: ProfileService,
+    private router: Router
+  ) {
+    this.adminForm = fb.group({
+      confirmpassword: ["", [Validators.required, Validators.minLength(6)]]
+    });
+  }
 
   ngOnInit() {
+<<<<<<< Updated upstream
     this.userProfileData = this.perf.getperfil();
   }
   borrar(){
@@ -21,6 +35,24 @@ export class PerfilComponent implements OnInit {
     this.user.deleteUser(this.userProfileData.id).subscribe(()=>{
       console.log('se elimino el perfil');
     })
+=======
+    
+    const userData = localStorage.getItem('local');
+    if (userData) {
+      this.userProfileData = JSON.parse(userData);
+    }
+>>>>>>> Stashed changes
     
   }
+
+  borrar() {
+    this.user.deleteUser(this.userProfileData.id).subscribe(() => {
+      console.log('se elimino el perfil');
+    });
+  }
+
+  Confirma() {
+    console.log('a');
+  }
+
 }
