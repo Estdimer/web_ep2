@@ -27,22 +27,10 @@ export class PerfilComponent implements OnInit {
   }
 
   ngOnInit() {
-<<<<<<< Updated upstream
-    this.userProfileData = this.perf.getperfil();
-  }
-  borrar(){
-
-    this.user.deleteUser(this.userProfileData.id).subscribe(()=>{
-      console.log('se elimino el perfil');
-    })
-=======
-    
     const userData = localStorage.getItem('local');
     if (userData) {
       this.userProfileData = JSON.parse(userData);
     }
->>>>>>> Stashed changes
-    
   }
 
   borrar() {
