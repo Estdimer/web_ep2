@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {UsersService} from '../../users.service';
 import { ProfileService } from 'src/app/perfil.service';
 import { Router } from '@angular/router';
-import { info } from 'console';
+//import { info } from 'console';
 
 @Component({
   selector: 'app-ingreso',
@@ -34,11 +34,12 @@ export class IngresoComponent implements OnInit {
     };
     this.user.getUser(this.loginForm.value.email).subscribe((data: any) => 
       {
-      if(data[0].password==this.loginForm.value.password)
+      if(data[0].contraseña==this.loginForm.value.password)
       {
+
         console.log('Datos coinciden');
         infoperfil.id=data[0].id;
-        infoperfil.nombre=data[0].nombre;
+        infoperfil.nombre=data[0].usuario;
         infoperfil.mail=data[0].mail;
         infoperfil.descripcion=data[0].descripcion;
         infoperfil.rol=data[0].rol;
