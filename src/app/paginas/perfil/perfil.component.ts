@@ -15,6 +15,8 @@ export class PerfilComponent implements OnInit {
 
   ngOnInit() {
     this.userProfileData = this.perf.getperfil();
+    console.log(this.userProfileData);
+
   }
   borrar(){
 
