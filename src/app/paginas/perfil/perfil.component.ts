@@ -35,6 +35,7 @@ export class PerfilComponent implements OnInit {
 
   borrar() {
     this.user.deleteUser(this.userProfileData.id).subscribe(() => {
+      localStorage.setItem('local',"");
       console.log('se elimino el perfil');
     });
   }
