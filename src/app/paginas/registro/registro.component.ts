@@ -16,7 +16,7 @@ import{HttpClientModule} from '@angular/common/http'
 // agregar al aceptar terminos y condiciones y colores 
 
 export class RegistroComponent {
-  registerForm: FormGroup;
+ protected registerForm: FormGroup;
 
   constructor(private fb: FormBuilder, private user:UsersService) {
     this.registerForm = fb.group({

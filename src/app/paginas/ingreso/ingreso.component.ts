@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {UsersService} from '../../users.service';
 import { ProfileService } from 'src/app/perfil.service';
 import { Router } from '@angular/router';
-//import { info } from 'console';
+
 
 @Component({
   selector: 'app-ingreso',
@@ -11,17 +11,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./ingreso.component.css'],
 })
 export class IngresoComponent implements OnInit {
-  loginForm: FormGroup;
+ protected  loginForm: FormGroup;
+  siteKey: string;
 
   constructor(private fb: FormBuilder, private user: UsersService, private prof:ProfileService,private router: Router) {
+    this.siteKey = "6LfC8B8pAAAAAMPbjtt7uO-WNdizyppMq-zbgGtV";
+    
     this.loginForm = fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
+      recaptcha: ['', Validators.required]
     })
-
+    
   }
   
   ngOnInit() {
+    
   }
 
   Confirma() {   

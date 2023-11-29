@@ -1,80 +1,64 @@
 <nav class="bg-gray-800 p-4">
   <div class="flex items-center justify-between">
     <div class="flex items-center">
-      <img  routerLink="" class="w-8 h-8 mr-8" src="assets/imagenes/icono.png" alt="logo" />
+      <img routerLink="" class="w-8 h-8 mr-8" src="assets/imagenes/icono.png" alt="logo" />
       <a class="text-white text-lg font-bold" routerLink="">ReciclaMundo</a>
     </div>
     <div class="md:hidden">
-      <button
-        class="text-white focus:outline-none focus:text-white"
-        (click)="toggleMenu()"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16m-7 6h7"
-          />
+      <button class="text-white focus:outline-none focus:text-white" (click)="toggleMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
         </svg>
       </button>
     </div>
     <div class="hidden md:flex flex-col md:flex-row md:items-center md:space-x-4">
-      <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-2">
-        <a routerLink="inicio"> Inicio </a>
+      <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-2" routerLink="inicio">
+        Inicio
       </a>
-      <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-2">
-        <a routerLink="noticias"> Noticias </a>
+      <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-2" routerLink="noticias">
+        Noticias
       </a>
-      <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-2">
-        <a routerLink="tutoriales"> Tutoriales </a>
+      <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-2" routerLink="tutoriales">
+        Tutoriales
       </a>
-      <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-2">
-        <a routerLink="buscador"> Buscador </a>
+      <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-2" routerLink="buscador">
+        Buscador
       </a>
-      <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-2">
-        <a routerLink="perfil"> Perfil </a>
+      <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-2" routerLink="perfil">
+        Perfil
       </a>
-      <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-2">
-        <a routerLink="registro"> Registro </a>
+      <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-2" routerLink="registro">
+        Registro
       </a>
-      <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-2">
-        <a routerLink="ingreso"> Ingreso </a>
+      <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-2" routerLink="ingreso">
+        Ingreso
       </a>
-
     </div>
   </div>
-  <!-- Aquí se puede agregar un menú desplegable para dispositivos móviles -->
+  <!-- celular -->
   <div *ngIf="isMenuOpen" class="md:hidden mt-4">
-    <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-4">
-      <a routerLink="inicio"> inicio </a>
-    </a>
-    <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-4">
-      <a routerLink="noticias"> noticias </a>
-    </a>
-    <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-4">
-      <a routerLink="tutoriales"> tutoriales </a>
-    </a>
-    <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-4">
-      <a routerLink="buscador"> buscador </a>
-    </a>
-    <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-4">
-      <a routerLink="perfil"> perfil </a>
-    </a>
-    <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-4">
-      <a routerLink="registro"> registro </a>
-    </a>
-    <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-4">
-      <a routerLink="ingreso"> ingreso </a>
-    </a>
+    <div class="flex flex-col text-center space-y-2">
+      <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-2" routerLink="inicio">
+        Inicio
+      </a>
+      <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-2" routerLink="noticias">
+        Noticias
+      </a>
+      <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-2" routerLink="tutoriales">
+        Tutoriales
+      </a>
+      <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-2" routerLink="buscador">
+        Buscador
+      </a>
+      <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-2" routerLink="perfil">
+        Perfil
+      </a>
+      <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-2" routerLink="registro">
+        Registro
+      </a>
+      <a class="px-2 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-full mx-2" routerLink="ingreso">
+        Ingreso
+      </a>
+    </div>
   </div>
 </nav>
-
-
-

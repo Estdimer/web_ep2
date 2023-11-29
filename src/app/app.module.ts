@@ -20,6 +20,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
 import { UsersService } from './users.service';
 import { ProfileService } from './perfil.service';
 import { EditarPerfilComponent } from './paginas/editar-perfil/editar-perfil.component';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 const routes: Routes = [
   {
@@ -62,7 +63,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AppComponent, FooterComponent, MenuComponent, RegistroComponent, IngresoComponent, PerfilComponent, TutorialesComponent, BuscadorComponent,NoticiasComponent, EditarPerfilComponent],
-  imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(routes),ReactiveFormsModule,CommonModule,HttpClientModule,YouTubePlayerModule],
+  imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(routes),ReactiveFormsModule,CommonModule,HttpClientModule,YouTubePlayerModule,NgxCaptchaModule],
   providers: [UsersService],
   bootstrap: [AppComponent],
 })
