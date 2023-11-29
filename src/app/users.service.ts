@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import {HttpClient,HttpHeaders} from '@angular/common/http'
 //import { subscribe } from 'diagnostics_channel';
 
 @Injectable({
@@ -17,5 +17,14 @@ export class UsersService {
   }
   deleteUser(id: number) {
     return this.http.delete(`${this.url}/${id}`);
+  }
+  updateUser(id: number,data: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        // Otros encabezados según sea necesario
+      })
+    };
+    return this.http.put<any>(`http://localhost:4000/api/usuarios/${id}`,JSON.stringify(data),httpOptions).subscribe();
   }
 }
