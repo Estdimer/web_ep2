@@ -26,4 +26,8 @@ export class UsersService {
     };
     return this.http.put<any>(`http://localhost:4000/api/users/${id}`,JSON.stringify(data),httpOptions).subscribe();
   }
+  getCaptcha(id: string){
+    
+  }
+
 }
