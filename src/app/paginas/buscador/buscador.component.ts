@@ -27,8 +27,8 @@ export class BuscadorComponent implements OnInit {
   ngOnInit() {
   }
   SaveData() {
+    //this.newsList=[];
      let contador =0;
-     this.newsList=[];
      for(let i =0;i<this.newsList.length;i++)
      {
         if(this.newsList[i].titulo.includes(this.buscarForm.value.buscar))

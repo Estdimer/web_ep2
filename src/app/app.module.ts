@@ -54,6 +54,10 @@ const routes: Routes = [
     path: 'noticias',
     component: NoticiasComponent,
   },
+  {
+    path: 'editar',
+    component: EditarPerfilComponent,
+  }
 ];
 
 @NgModule({
