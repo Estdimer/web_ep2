@@ -37,25 +37,29 @@ export class IngresoComponent implements OnInit {
         descripcion:"",
         rol:"",
     };
-    this.user.getUser(this.loginForm.value.email).subscribe((data: any) => 
+    let datosInicio={
+      mail:this.loginForm.value.email,
+      contraseña:this.loginForm.value.password,
+    };
+    this.user.getUser(datosInicio).subscribe((data: any) => 
       {
-      if(data[0].contraseña==this.loginForm.value.password)
-      {
+        if(data)
+          {
 
-        console.log('Datos coinciden');
-        infoperfil.id=data[0].id;
-        infoperfil.nombre=data[0].usuario;
-        infoperfil.mail=data[0].mail;
-        infoperfil.descripcion=data[0].descripcion;
-        infoperfil.rol=data[0].rol;
-        this.prof.setPerfil(infoperfil);
-        localStorage.setItem('local', JSON.stringify(infoperfil));
-        this.router.navigate(['/perfil']);
-      }
-      else
-      {
-        console.log("Datos no Coinciden");
-      }
+              console.log('Datos coinciden');
+              infoperfil.id=data[0].id;
+              infoperfil.nombre=data[0].usuario;
+              infoperfil.mail=data[0].mail;
+              infoperfil.descripcion=data[0].descripcion;
+              infoperfil.rol=data[0].rol;
+              this.prof.setPerfil(infoperfil);
+              localStorage.setItem('local', JSON.stringify(infoperfil));
+              this.router.navigate(['/perfil']);
+          }
+        else
+          {
+            console.log("Datos no Coinciden");
+          }
     });
   }
 }

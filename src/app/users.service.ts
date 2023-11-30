@@ -9,8 +9,12 @@ export class UsersService {
 
   constructor(private http:HttpClient) { }
   url = 'http://localhost:4000/api/users';
-  getUser(email:any){
-    return this.http.get(`${this.url}/${email}`);
+  getUser(data:any){
+    let datos={
+      mail:data.mail,
+      contraseña:data.contraseña
+    };
+    return this.http.post('http://localhost:4000/api/users/mail',datos);
   }
   saveUserData(data: any){
     return this.http.post('http://localhost:4000/api/users/', data);
